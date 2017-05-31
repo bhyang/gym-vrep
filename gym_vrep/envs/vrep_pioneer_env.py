@@ -1,26 +1,22 @@
-import gym
-from gym import error, spaces, utils
-from gym.utils import seeding
-
 from gym_vrep.envs.vrep_env import VrepEnv
 
-class VrepPioneerEnv(gym.Env):
+class VrepPioneerEnv(VrepEnv):
 	metadata = {'render.modes': ['human']}
 
 	def __init__(self):
-		self.vrep = VrepEnv('pioneer.ttt', ['pioneer', 'leftMotor', 'rightMotor'])
+		super().__init__('pioneer.ttt', ['pioneer', 'leftMotor', 'rightMotor'])
 
 	def _step(self, action):
-		self.vrep.step()
-		ob = self.vrep.getObjectPosition('pioneer'), self.vrep.getObjectVelocity('pioneer')
+		self.setJointTargetVelocity('leftMotor', action[0])
+		self.setJointTargetVelocity('rightMotor', action[1])
+		VrepEnv._step(self, action)
+		ob = self.getObjectPosition('pioneer'), self.getObjectVelocity('pioneer')
 		return ob, 0, False, {}
 
-	def _reset(self):
-		self.vrep.stop()
-		self.vrep.start()
+	# def _reset(self):
+	# 	print('_reset called from pioneer class')
+	# 	# VrepEnv._reset(self)
 
-	def _render(self, mode='human', close=False):
-		if close:
-			self.vrep.stop()
-			self.vrep.close()
-		
+	# def _render(self, mode='human', close=False):
+	# 	print('_render called from pioneer class')
+	# 	# VrepEnv._render(self, mode, close)
