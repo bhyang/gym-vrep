@@ -26,4 +26,4 @@ for _ in range(1000):
     # No need to render since V-REP should already be open    
 ```
 As of now the `vrep_env.py` base class only supports getting velocity and position data, as well as setting the velocity of a target joint. Once I have time I'll probably extend the API, but if you'd like extending it should be super easy (the remote API functions for Python are well-documented [here](http://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsPython.htm)). As it stands, new classes also need to have all handles given upon initialization.
-![Walker example](http://imgur.com/a/XqBbp)
+![Imgur](http://i.imgur.com/dXMaIRp.png)
