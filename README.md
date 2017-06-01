@@ -1,6 +1,8 @@
 # gym-vrep
 OpenAI gym environment for V-REP. This environment should provide a serviceable baseline for any reinforcement learning ventures involving robots in V-REP. But you'll probably still have to configure the environment to your own needs, and potentially extend the base environment to encompass more V-REP functionality.
 
+![Imgur](http://i.imgur.com/dXMaIRp.png)
+
 This is far from a finished product, so keep that in mind if you try to follow along.
 
 ## Installation
@@ -26,4 +28,12 @@ for _ in range(1000):
     # No need to render since V-REP should already be open    
 ```
 As of now the `vrep_env.py` base class only supports getting velocity and position data, as well as setting the velocity of a target joint. Once I have time I'll probably extend the API, but if you'd like extending it should be super easy (the remote API functions for Python are well-documented [here](http://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsPython.htm)). As it stands, new classes also need to have all handles given upon initialization.
-![Imgur](http://i.imgur.com/dXMaIRp.png)
+
+## To Do
+1. A lot
+2. Extending the remote function API
+3. Running a new temporary instance of V-REP from within the package
+4. Implementing a real reward system/task for the examples
+5. Fetching handles real-time with a cache
+6. Better visualizations
+
