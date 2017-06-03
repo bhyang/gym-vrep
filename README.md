@@ -1,4 +1,4 @@
-# gym-vrep
+# gym-vrep (WORK IN PROGRESS)
 OpenAI gym environment for V-REP. This environment should provide a serviceable baseline for any reinforcement learning ventures involving robots in V-REP. But you'll probably still have to configure the environment to your own needs, and potentially extend the base environment to encompass more V-REP functionality.
 
 ![Imgur](http://i.imgur.com/dXMaIRp.png)
